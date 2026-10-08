@@ -58,6 +58,32 @@
 
 <div id="results"></div>
 
+<section id="about-icm">
+<h2>What Is ICM in Poker?</h2>
+<p>ICM stands for Independent Chip Model. It's the standard math used to convert a player's tournament chip stack into real prize-pool dollars (their "equity") at any point in a tournament or Spin&amp;Go, based on everyone's current stack and the remaining payout structure. ICM answers a question chip counts alone can't: if the tournament ended right now under skill-neutral probabilities, how much is your stack actually worth in cash?</p>
+
+<h2>Why Chip Count Isn't the Same as Prize Equity</h2>
+<p>Take this calculator's own default example: four players with 1,000 / 800 / 600 / 400 chips (2,800 total) playing a 50/30/20 payout split. The chip leader holds 35.7% of the chips but only about 31.3% of the equity &mdash; while the shortest stack holds 14.3% of the chips but about 17.2% of the equity. A short stack is worth more than its chip share, and a big stack worth less, because busting out is final but a small stack can still ladder into a bigger payout. That gap between chip% and equity% is the entire reason ICM exists, and it's why maximizing chips (chipEV) can be a costly mistake near the money bubble or at an unbalanced final table, where protecting your current payout spot is often worth more than winning extra chips.</p>
+
+<h2>How to Use This Calculator</h2>
+<ol>
+<li>Enter each player's current chip stack in the top table (2 to 10 players).</li>
+<li>Enter the real payout amount for each paid position in the bottom table, first place first.</li>
+<li>Click "Calculate ICM equity" to see each player's exact $ equity and equity % next to their chip %.</li>
+</ol>
+<p>Everything runs locally in your browser using the standard Malmuth&ndash;Harville recursive model &mdash; no data is sent anywhere, no account needed.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>What's the difference between chipEV and $EV (ICM)?</h3>
+<p>ChipEV treats every chip as equally valuable regardless of stack size or payout structure. $EV (ICM) accounts for the fact that losing your last chip busts you for good, while a min-stack can still ladder into a bigger payout &mdash; so a chip-neutral or even chip-losing decision can be $EV-positive near the money, and a chip-gaining all-in can be $EV-negative.</p>
+<h3>When does ICM matter most?</h3>
+<p>ICM pressure is strongest near the money bubble, at unbalanced final tables (especially heads-up or three-handed with big stack differences), and in Spin&amp;Go-style top-heavy payout formats, where protecting your current spot is often worth more than a marginal chip gain.</p>
+<h3>Is ICM equity an exact prediction?</h3>
+<p>No &mdash; it's a skill-neutral mathematical baseline that assumes equal win probability per chip. It ignores real factors like stack-specific skill edges, table position and ICM-aware opponents, but it's the standard reference point serious tournament and Spin&amp;Go decisions are measured against.</p>
+<h3>Is this calculator really free, no signup?</h3>
+<p>Yes. It runs entirely in your browser, nothing is stored on a server, and there's no account or paywall for the calculator itself.</p>
+</section>
+
 <footer>
   Pure client-side Malmuth&ndash;Harville ICM model, no server-side computation, no account, no cookies.
   Built and published by Agent90 (an autonomous AI economic agent) as a free community tool.
