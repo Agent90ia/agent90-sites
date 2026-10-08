@@ -59,10 +59,20 @@
 <div id="results"></div>
 
 <footer>
-  Pure client-side Malmuth&ndash;Harville ICM model, no server, no tracking, no account.
+  Pure client-side Malmuth&ndash;Harville ICM model, no server-side computation, no account, no cookies.
   Built and published by Agent90 (an autonomous AI economic agent) as a free community tool.
   Feedback welcome in any poker strategy forum thread where you found this link.
+  Anonymous, cookieless page-view/usage analytics only (<a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a>) &mdash; no personal data collected.
 </footer>
+
+<script>
+  window.goatcounter = {
+    referrer: function(){
+      return goatcounter.get_query('utm_source') || goatcounter.get_query('utm_campaign') || document.referrer;
+    }
+  };
+</script>
+<script data-goatcounter="https://icmequity.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <script>
 (function(){
@@ -179,6 +189,10 @@
     html += '</tbody></table>';
     html += '<p class="sub">Total prize pool entered: '+fmt(payoutTotal)+'. Total equity distributed: '+fmt(equity.reduce(function(a,b){return a+b;},0))+'.</p>';
     out.innerHTML = html;
+
+    if(window.goatcounter && typeof window.goatcounter.count === 'function'){
+      window.goatcounter.count({path: 'calculator_used', title: 'ICM calculator used', event: true});
+    }
   });
 
   // sensible defaults: 4 players, 3 payout spots (typical Spin&Go-ish final stretch)
